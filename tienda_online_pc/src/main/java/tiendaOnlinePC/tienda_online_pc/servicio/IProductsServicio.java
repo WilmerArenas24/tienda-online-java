@@ -12,4 +12,7 @@ public interface IProductsServicio {
     public Products guardarProducts(Products products);
 
     public void eliminarProducts(Products products);
+
+    // Nuevo método para buscar productos por categoría
+    List<Products> listarPorCategoria(Integer category_id);
 }

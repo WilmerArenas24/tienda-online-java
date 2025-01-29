@@ -3,10 +3,7 @@ package tiendaOnlinePC.tienda_online_pc.controlador;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tiendaOnlinePC.tienda_online_pc.modelo.Products;
 import tiendaOnlinePC.tienda_online_pc.servicio.IProductsServicio;
 
@@ -28,5 +25,13 @@ public class ProductsControlador {
         products.forEach((products1 -> logger.info(products1.toString())));
         return products;
     }
+
+    @GetMapping("/products/category/{category_id}")
+    public List<Products> obtenerProductsPorCategoria(@PathVariable Integer category_id) {
+        var products = productsServicio.listarPorCategoria(category_id);
+        products.forEach(product -> logger.info(product.toString()));
+        return products;
+    }
+
 
 }

@@ -34,4 +34,10 @@ public class ProductsServicio implements IProductsServicio {
         productsRepositorio.delete(products);
 
     }
+
+    // Nuevo método para obtener productos por categoría
+    @Override
+    public List<Products> listarPorCategoria(Integer category_id) {
+        return productsRepositorio.findByCategoryId(category_id);
+    }
 }

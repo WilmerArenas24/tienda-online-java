@@ -1,9 +1,6 @@
 package tiendaOnlinePC.tienda_online_pc.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "products")
 
 public class Products {
     @Id
@@ -24,7 +22,7 @@ public class Products {
     String description;
     Double price;
     Integer stock;
-    Integer category_id;
+    Integer categoryId;
     String img_url;
 
     public Integer getProduct_id() {
@@ -68,11 +66,11 @@ public class Products {
     }
 
     public Integer getCategory_id() {
-        return category_id;
+        return categoryId;
     }
 
     public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+        this.categoryId = category_id;
     }
 
     public String getImg_url() {
@@ -91,7 +89,7 @@ public class Products {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
-                ", category_id=" + category_id +
+                ", category_id=" + categoryId +
                 ", img_url='" + img_url + '\'' +
                 '}';
     }
